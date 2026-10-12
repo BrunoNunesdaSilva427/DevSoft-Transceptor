@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="author" content="Bruno Nunes da Silva">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>DevSoft Transceptor — por Bruno Nunes da Silva</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -245,6 +245,26 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 #pbox.sk .lcdinfo{color:var(--kd);text-shadow:0 0 6px var(--kd)}
 #pbox[data-skin=s955] .lcdinfo{background:#010304;border:2px solid var(--ka);border-radius:4px;padding:6px 0;font-size:13px;box-shadow:inset 0 0 10px #000,0 0 10px var(--kg2)}
 
+.pwrbtn{position:absolute;width:36px;height:36px;padding:0;border-radius:50%;border:2px solid #0a0a0a;cursor:pointer;background:radial-gradient(circle at 38% 30%,#fff,#b9bcc1 45%,#5c5f65);box-shadow:0 3px 6px rgba(0,0,0,.6),inset 0 1px 1px #fff;transform:translateZ(6px);touch-action:manipulation;display:flex;align-items:center;justify-content:center}
+.pwrbtn svg{width:18px;height:18px;stroke:#2a2c30;fill:none;stroke-width:2.6;stroke-linecap:round}
+.pwrbtn.on svg{stroke:#0a8a2a}
+.pwrbtn:active{transform:translateZ(3px) scale(.95)}
+.pled{position:absolute;width:12px;height:12px;border-radius:50%;border:2px solid #9a9ca0;background:#2a1111;box-shadow:inset 0 0 3px #000;transform:translateZ(3px)}
+.pled.on{background:radial-gradient(circle at 40% 35%,#eaffd0,#4cf24c 55%,#16a516);box-shadow:0 0 10px #4f4}
+#pbox.sk .pled{border-color:var(--ka)}
+#pbox.sk .pled.on{background:radial-gradient(circle at 40% 35%,#fff,var(--kd) 60%);box-shadow:0 0 10px var(--kd)}
+.led.off{background:#101310;box-shadow:inset 0 0 4px #000}
+#pbox.off .kn,#pbox.off .sw{filter:brightness(.8)}
+#pbox.off .lb{opacity:.65}
+#pbox.sk.met .face{background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,rgba(0,0,0,.05) 1px 3px),linear-gradient(115deg,var(--m1),var(--m0) 24%,var(--m2) 46%,var(--m0) 70%,var(--m1))}
+#pbox.sk.met .lb,#pbox.sk.met .brand,#pbox.sk.met .brand small{color:var(--mt);text-shadow:none}
+#pbox.sk.met .lcdinfo{background:#010304;border:2px solid var(--ka);border-radius:4px;padding:6px 0;font-size:13px;box-shadow:inset 0 0 10px #000,0 0 10px var(--kg2)}
+.sp-two{grid-template-columns:1fr 1fr}
+.sp-two button{font-size:.66rem;letter-spacing:.5px;padding:6px 8px;gap:8px}
+.sp-two button i{width:22px;height:22px}
+.sp-fin{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.sp-fin button{height:34px;border:1px solid var(--border);border-radius:4px;padding:0;font:inherit;font-size:.58rem;letter-spacing:.3px;text-shadow:0 0 2px rgba(0,0,0,.6)}
+.sp-fin button.on{border-color:var(--accent2);box-shadow:0 0 12px rgba(0,212,255,.45)}
 :root{--D:74px}
 #scaler{padding:30px 0 44px}
 .microw{height:116px}
@@ -329,6 +349,78 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .sp-hint{position:absolute;bottom:62px;font-size:.62rem;letter-spacing:.3em;color:#1f4a78;animation:spBlink 1.6s 1.4s ease-in-out infinite both}
 @keyframes spBlink{0%,100%{opacity:.25}50%{opacity:1}}
 @media(prefers-reduced-motion:reduce){#splash,#splash *,#splash::before,#splash::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.2s!important}}
+
+.pwov{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:16px}
+.pwbox{width:min(380px,100%);background:#14181d;border:1px solid #2c3a48;border-top:2px solid #35b7ff;border-radius:8px;padding:18px;color:#eae4d6}
+.pwbox h3{margin:0 0 8px;font:800 14px ui-monospace,monospace;letter-spacing:.14em;color:#ffcf8a}
+.pwbox p{margin:0 0 10px;font-size:14px;line-height:1.4;word-break:break-word}
+.pwbox select{width:100%;padding:10px;font-size:16px;border-radius:4px;border:1px solid #3a4a5a;background:#0a0d11;color:#d6ffbd}
+.pwbox input{width:100%;padding:10px;font-size:16px;border-radius:4px;border:1px solid #3a4a5a;background:#0a0d11;color:#d6ffbd}
+.pwmsg{min-height:18px;margin-top:6px;font:700 12px ui-monospace,monospace;color:#ff8a7a}
+.pwbtn{display:flex;gap:8px;margin-top:10px;justify-content:flex-end}
+.room .lkb{margin-left:4px}
+.mstrip{display:none}
+button,.btn,input,select,summary{touch-action:manipulation}
+#mic{-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+
+@media(max-width:820px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{min-height:100vh;min-height:100dvh;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:env(safe-area-inset-bottom);overflow-x:hidden}
+  .wrap{padding:calc(10px + env(safe-area-inset-top)) 10px 24px}
+  header.top{gap:10px;margin-bottom:12px}
+  header.top h1{font-size:17px;letter-spacing:.1em}
+  header.top small{font-size:11px}
+  .card{padding:14px 12px}
+  .card input,.card select{font-size:16px;min-height:44px}
+  .btn{min-height:44px;padding-left:12px;padding-right:12px}
+  .row2{gap:8px}
+  .room{flex-wrap:wrap;gap:8px}
+  .room .rinfo{flex:1 1 55%}
+  .rinfo small{white-space:normal}
+  .rch{font-size:24px;min-width:44px}
+  #radioView{display:flex;flex-direction:column}
+  #radioView>.section-header{order:0}
+  #radioView>.bar{order:1;gap:8px}
+  #radioView>.microw{order:2}
+  #radioView>.lcdbar{order:3;margin-top:8px}
+  #radioView>.mstrip{order:4}
+  #radioView>#scaler{order:5}
+  #radioView>.trbox{order:6;margin-top:12px}
+  #radioView>.stations{order:7}
+  #radioView>.stations,#radioView>.microw,#radioView>.trbox,#radioView>.lcdbar,#radioView>#scaler{width:100%;max-width:100%;min-width:0}
+  .bar .t{flex:1 0 100%;order:-1;max-width:100%}
+  .bar .btn{flex:1 1 auto}
+  .bar #net2{margin-left:0!important}
+  .microw{height:auto;overflow:visible;display:flex;flex-direction:column;align-items:center;gap:10px;padding:6px 0 4px}
+  #mic{position:relative;left:auto;top:auto;width:min(94%,360px);height:128px;flex:none}
+  #mic .bar2{left:18px;right:18px;top:18px;height:44px;line-height:44px;font-size:16px}
+  #mic .grill{left:40px;right:40px;bottom:16px}
+  .micctl{position:static;text-align:center}
+  .micctl label{justify-content:center;min-height:32px}
+  #cord{display:none}
+  #scaler{padding:6px 0 10px}
+  .mstrip{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin:10px auto 0;width:100%;max-width:520px;padding:16px 18px;border:1px solid var(--border);border-top:2px solid var(--border-glow);border-radius:6px;background:var(--surface)}
+  .mstrip label{display:flex;flex-direction:column;gap:4px;font:.7rem var(--mono);letter-spacing:2px;color:var(--text-dim)}
+  .mstrip input[type=range]{width:100%;height:32px;accent-color:var(--accent2);-webkit-appearance:none;appearance:none;background:transparent}
+  .mstrip input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--border);border-radius:2px}
+  .mstrip input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-8px;border-radius:50%;background:var(--accent2);border:2px solid var(--bg);box-shadow:0 0 10px rgba(0,212,255,.6)}
+  .mstrip input[type=range]::-moz-range-track{height:4px;background:var(--border);border-radius:2px}
+  .mstrip input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent2);border:2px solid var(--bg);box-shadow:0 0 10px rgba(0,212,255,.6)}
+  .mstrip .chs{grid-column:1/-1;display:flex;align-items:center;gap:10px}
+  .mstrip .chs b{flex:1;text-align:center;font:700 1.15rem var(--mono);color:var(--accent2);letter-spacing:3px;text-shadow:0 0 10px rgba(0,212,255,.5)}
+  .mstrip .chs .btn{flex:0 0 64px;font-size:20px}
+  .lcdbar{font-size:12px;flex-wrap:wrap;gap:6px}
+  .stations{margin-top:12px}
+  #map{height:260px}
+  .trhead h3{flex:1 0 100%}
+  .trhead label{min-height:32px}
+  #trList{max-height:42vh;font-size:14px}
+  .credit{padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+}
+@media(max-width:380px){
+  header.top h1{font-size:15px}
+  .mstrip{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -409,10 +501,16 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   <div class="sp-styles">
     <button type="button" data-s="s497"><i style="background:linear-gradient(#05070b,#35b7ff)"></i>SR-497HPC<small>AZUL</small></button>
     <button type="button" data-s="s955"><i style="background:linear-gradient(#040805,#39ff5a)"></i>SR-955HP<small>VERDE</small></button>
+    <button type="button" data-s="c148"><i style="background:linear-gradient(#0d0d0f,#ff2a1a)"></i>148 GTL<small>PRETO/VERM.</small></button>
     <button type="button" data-s="classic"><i style="background:linear-gradient(#d4d5d8,#ff9a1f)"></i>CLÁSSICO<small>LARANJA</small></button>
   </div>
   <div id="spColors">
     <div class="sp-lbl">CORES — <span id="spName"></span></div>
+    <div class="sp-lbl">PREDEFINIÇÕES (ESTILO PX)</div>
+    <div class="sp-styles sp-two" id="spPre"></div>
+    <div class="sp-lbl">ACABAMENTO DO PAINEL</div>
+    <div class="sp-fin" id="spFin"></div>
+    <div class="sp-lbl">AJUSTE MANUAL</div>
     <label>BRILHO / RÓTULOS <input type="color" id="cKa"></label>
     <label>DISPLAY / MEDIDOR <input type="color" id="cKd"></label>
     <label>PAINEL <input type="color" id="cKf"></label>
@@ -448,6 +546,11 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
           <div><label for="rch">CANAL</label><select id="rch"></select></div>
         </div>
         <div class="hint" id="chhint"></div>
+        <label for="rpass">SENHA (OPCIONAL · SALA PRIVADA 🔒)</label>
+        <input id="rpass" type="password" maxlength="64" autocomplete="new-password" placeholder="vazio = sala aberta · mín. 8 caracteres">
+        <label for="rttl">VALIDADE DA SENHA (PARA NOVAS ENTRADAS)</label>
+        <select id="rttl"></select>
+        <div class="hint">Sala privada aparece em «Salas abertas» com 🔒, mas só entra quem souber a senha. Senha temporária: depois do prazo ninguém novo entra; quem já está na sala continua. Áudio e transcrição ficam restritos aos membros.</div>
         <button class="btn go full" id="create" type="button">CRIAR E ENTRAR</button>
         <div class="msg" id="lobbyMsg"></div>
       </div>
@@ -467,6 +570,8 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
     <div id="invTxt" style="font:700 14px ui-monospace,monospace;margin-bottom:6px"></div>
     <label for="invCall">SEU INDICATIVO</label>
     <input id="invCall" maxlength="12" placeholder="PY2ABC" autocomplete="off" spellcheck="false">
+    <label for="invPass">SENHA DA SALA (se for privada)</label>
+    <input id="invPass" type="password" maxlength="64" autocomplete="off" placeholder="deixe vazio se a sala for aberta">
     <button class="btn go full" id="invGo" type="button">ENTRAR NA SALA</button>
   </div>
 </div>
@@ -492,6 +597,14 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   </div>
 
   <div id="scaler"><div class="pwrap" id="pwrap"><div class="pbox" id="pbox"><div id="tilt"><i class="sd sd-sh"></i><i class="sd sd-k"></i><i class="sd sd-l"></i><i class="sd sd-r"></i><i class="sd sd-t"></i><i class="sd sd-b"></i><div class="bezel"><div class="face" id="face"></div></div></div></div></div></div>
+
+  <div class="mstrip" id="mstrip" aria-label="Controles rápidos">
+    <label>VOLUME<input id="msVol" type="range" min="0" max="1" step="0.01"></label>
+    <label>SQUELCH<input id="msSq" type="range" min="0" max="1" step="0.01"></label>
+    <label>GANHO DO MIC<input id="msMic" type="range" min="0" max="1" step="0.01"></label>
+    <label>GANHO RF<input id="msRf" type="range" min="0" max="1" step="0.01"></label>
+    <div class="chs"><button class="btn" id="msChDn" type="button" aria-label="Canal anterior">−</button><b id="msCh">CH --</b><button class="btn" id="msChUp" type="button" aria-label="Próximo canal">+</button></div>
+  </div>
 
   <div class="lcdbar" id="status"><span id="statusText">—</span><button class="btn hidden" id="createHere" type="button">CRIAR SALA AQUI</button></div>
 
@@ -557,12 +670,136 @@ const peers = new Map();
 const conns = new Map();
 const speak = new Map();
 let curRoom = null, joinedAt = 0;
+
+const te=new TextEncoder(), td=new TextDecoder();
+const b64=u=>{ u=new Uint8Array(u); let r=''; for(let i=0;i<u.length;i++) r+=String.fromCharCode(u[i]); return btoa(r); };
+const ub64=x=>Uint8Array.from(atob(x),c=>c.charCodeAt(0));
+const hasCrypto=()=>!!(window.crypto&&crypto.subtle);
+const PW_MIN=8, PW_ITER=600000, TTLS=[[0,'Permanente'],[5,'5 minutos'],[15,'15 minutos'],[30,'30 minutos'],[60,'1 hora']];
+const rnd=n=>crypto.getRandomValues(new Uint8Array(n));
+const cat=(...a)=>{ const o=new Uint8Array(a.reduce((s,x)=>s+x.length,0)); let p=0; for(const x of a){ o.set(x,p); p+=x.length; } return o; };
+async function aesE(k,t){ const iv=rnd(12); return b64(cat(iv,new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},k,t)))); }
+async function aesD(k,x){ const u=ub64(x); return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},k,u.slice(12))); }
+async function pwKeys(pass,salt){
+  const base=await crypto.subtle.importKey('raw',te.encode(pass),'PBKDF2',false,['deriveBits']);
+  const bits=new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:ub64(salt),iterations:PW_ITER},base,512));
+  return {salt,A:await crypto.subtle.importKey('raw',bits.slice(0,32),{name:'HMAC',hash:'SHA-256'},false,['sign','verify']),W:await crypto.subtle.importKey('raw',bits.slice(32,64),'AES-GCM',false,['encrypt','decrypt'])};
+}
+async function secBuild(kb,gate,ex){
+  const enc=await crypto.subtle.importKey('raw',kb.slice(0,32),'AES-GCM',false,['encrypt','decrypt']);
+  const mac=await crypto.subtle.importKey('raw',kb.slice(32,64),{name:'HMAC',hash:'SHA-256'},false,['sign','verify']);
+  const kid=b64(new Uint8Array(await crypto.subtle.digest('SHA-256',kb)).slice(0,12));
+  return {kid,kb,enc,mac,gate,ex:ex||0};
+}
+async function secNew(pass,mins){ return secBuild(rnd(64),await pwKeys(pass,b64(rnd(16))),mins?Date.now()+mins*60000:0); }
+async function ecNew(){ const kp=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},false,['deriveBits']); return {kp,pub:b64(await crypto.subtle.exportKey('raw',kp.publicKey))}; }
+async function ecKey(kp,peerPub,ctx){
+  const pk=await crypto.subtle.importKey('raw',ub64(peerPub),{name:'ECDH',namedCurve:'P-256'},false,[]);
+  const sh=new Uint8Array(await crypto.subtle.deriveBits({name:'ECDH',public:pk},kp.privateKey,256));
+  return crypto.subtle.importKey('raw',await crypto.subtle.digest('SHA-256',cat(sh,te.encode(ctx))),'AES-GCM',false,['encrypt','decrypt']);
+}
+const hsIn=new Map(), hsCnt=new Map(), hsBlk=new Map(), hsBad=[];
+let hsJ=null;
+function hsPub(to,m){ busPub(NS+'s/'+to,JSON.stringify({hs:1,f:me.id,...m})); }
+async function hsMember(m){
+  const room=curRoom, sec=room&&room.sec, J=m.f, now=Date.now();
+  if(!sec||m.r!==room.key||typeof J!=='string'||J===me.id) return;
+  const alive=()=>curRoom===room;
+  if(m.t==='jq'){
+    if(typeof m.e!=='string'||m.e.length>200) return;
+    for(const [k,v] of hsIn) if(now-v.t>30000) hsIn.delete(k);
+    while(hsBad.length&&now-hsBad[0]>300000) hsBad.shift();
+    if((hsBlk.get(J)||0)>now||hsBad.length>=12) return;
+    if(sec.ex&&now>sec.ex){ hsPub(J,{t:'jx',r:m.r,w:'exp'}); return; }
+    const ec=await ecNew(), S=await ecKey(ec.kp,m.e,`hs|${m.r}|${J}|${me.id}`), nc=b64(rnd(16));
+    hsIn.set(J,{S,nc,t:now});
+    const c=await aesE(S,te.encode(JSON.stringify({nc,s:sec.gate.salt})));
+    if(alive()) hsPub(J,{t:'jc',r:m.r,e:ec.pub,c});
+  } else if(m.t==='jp'){
+    const h=hsIn.get(J); hsIn.delete(J);
+    if(!h||now-h.t>30000||typeof m.c!=='string'||(hsBlk.get(J)||0)>now) return;
+    let ok=false;
+    try{ const p=JSON.parse(td.decode(await aesD(h.S,m.c))).p; ok=await crypto.subtle.verify('HMAC',sec.gate.A,ub64(p),te.encode(`jp|${h.nc}|${J}|${me.id}|${m.r}`)); }catch(e){}
+    if(sec.ex&&Date.now()>sec.ex){ hsPub(J,{t:'jx',r:m.r,w:'exp'}); return; }
+    let out;
+    if(ok){ hsCnt.delete(J); out={w:await aesE(sec.gate.W,te.encode(JSON.stringify({k:b64(sec.kb),x:sec.ex})))}; }
+    else{ hsBad.push(Date.now()); const n=(hsCnt.get(J)||0)+1; hsCnt.set(J,n); if(n>=3){ hsBlk.set(J,Date.now()+120000); hsCnt.delete(J); } out={e:'bad'}; }
+    const c=await aesE(h.S,te.encode(JSON.stringify(out)));
+    if(alive()) hsPub(J,{t:'jk',r:m.r,c});
+  }
+}
+function hsJoin(rk,pw,cands){
+  return new Promise(async res=>{
+    const st={rk,pw,ec:await ecNew(),pick:null,S:null,gate:null}; hsJ=st;
+    const tm=setTimeout(()=>st.fin({e:'timeout'}),25000);
+    st.fin=v=>{ clearTimeout(tm); if(hsJ===st) hsJ=null; res(v); };
+    for(const id of cands.slice(0,3)) hsPub(id,{t:'jq',r:rk,e:st.ec.pub});
+  });
+}
+async function hsJoiner(m){
+  const st=hsJ; if(!st||m.r!==st.rk||typeof m.f!=='string') return;
+  try{
+    if(m.t==='jx'){ if(m.w==='exp') st.fin({e:'exp'}); return; }
+    if(m.t==='jc'){
+      if(st.pick) return;
+      const S=await ecKey(st.ec.kp,m.e,`hs|${st.rk}|${me.id}|${m.f}`), c=JSON.parse(td.decode(await aesD(S,m.c)));
+      if(st.pick) return; st.pick=m.f; st.S=S;
+      st.gate=await pwKeys(st.pw,c.s);
+      const p=b64(new Uint8Array(await crypto.subtle.sign('HMAC',st.gate.A,te.encode(`jp|${c.nc}|${me.id}|${m.f}|${st.rk}`))));
+      hsPub(m.f,{t:'jp',r:st.rk,c:await aesE(st.S,te.encode(JSON.stringify({p})))});
+    } else if(m.t==='jk'&&m.f===st.pick&&st.gate){
+      const d=JSON.parse(td.decode(await aesD(st.S,m.c)));
+      if(d.e) return st.fin({e:d.e});
+      const i=JSON.parse(td.decode(await aesD(st.gate.W,d.w)));
+      st.fin({sec:await secBuild(ub64(i.k),st.gate,+i.x||0)});
+    }
+  }catch(e){}
+}
+async function macStr(sec,str){ return b64(await crypto.subtle.sign('HMAC',sec.mac,te.encode(str))); }
+async function macOk(sec,str,h){ try{ return await crypto.subtle.verify('HMAC',sec.mac,ub64(h),te.encode(str)); }catch(e){ return false; } }
+async function encTxt(sec,t){
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const ct=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},sec.enc,te.encode(t)));
+  const o=new Uint8Array(12+ct.length); o.set(iv); o.set(ct,12); return b64(o);
+}
+async function decTxt(sec,x){
+  try{ const u=ub64(x); return td.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u.slice(0,12)},sec.enc,u.slice(12))); }catch(e){ return null; }
+}
+function askNewPass(){
+  return new Promise(res=>{
+    const ov=el('div','pwov',document.body);
+    ov.innerHTML='<div class="pwbox" role="dialog" aria-modal="true"><h3>🔒 SENHA DA SALA</h3><p>Deixe vazio para uma sala aberta. Mínimo de '+PW_MIN+' caracteres.</p><input type="password" autocomplete="new-password" maxlength="64" placeholder="Senha (opcional)" data-p><input type="password" autocomplete="new-password" maxlength="64" placeholder="Repita a senha" data-q style="margin-top:8px"><select data-t style="margin-top:8px"></select><div class="pwmsg"></div><div class="pwbtn"><button class="btn" type="button" data-x="0">CANCELAR</button><button class="btn go" type="button" data-x="1">CRIAR SALA</button></div></div>';
+    const p=$('[data-p]',ov), q=$('[data-q]',ov), t=$('[data-t]',ov), msg=$('.pwmsg',ov);
+    for(const [v,l] of TTLS){ const o=document.createElement('option'); o.value=v; o.textContent='Senha válida: '+l; t.appendChild(o); }
+    const done=v=>{ ov.remove(); res(v); };
+    const ok=()=>{
+      if(p.value&&p.value.length<PW_MIN){ msg.textContent='Senha: mínimo de '+PW_MIN+' caracteres.'; return; }
+      if(p.value!==q.value){ msg.textContent='As senhas não coincidem.'; return; }
+      done({pw:p.value,mins:+t.value||0});
+    };
+    $('[data-x="0"]',ov).onclick=()=>done(null); $('[data-x="1"]',ov).onclick=ok;
+    ov.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); ok(); } else if(e.key==='Escape') done(null); };
+    setTimeout(()=>p.focus(),50);
+  });
+}
+function askPass(name,err){
+  return new Promise(res=>{
+    const ov=el('div','pwov',document.body);
+    ov.innerHTML='<div class="pwbox" role="dialog" aria-modal="true"><h3>🔒 SALA PRIVADA</h3><p></p><input type="password" autocomplete="off" maxlength="64" placeholder="Senha da sala"><div class="pwmsg"></div><div class="pwbtn"><button class="btn" type="button" data-x="0">CANCELAR</button><button class="btn go" type="button" data-x="1">ENTRAR</button></div></div>';
+    $('p',ov).textContent='«'+name+'» exige senha para entrar.'; $('.pwmsg',ov).textContent=err||'';
+    const inp=$('input',ov), done=v=>{ ov.remove(); res(v); };
+    $('[data-x="0"]',ov).onclick=()=>done(null); $('[data-x="1"]',ov).onclick=()=>done(inp.value);
+    inp.onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); done(inp.value); } else if(e.key==='Escape') done(null); };
+    setTimeout(()=>inp.focus(),50);
+  });
+}
 let bus = [], connected = false, everUp = false, ctlTopic = null, aiTopic = null;
 const seenSig = new Set();
 let ac = null, micOK = false, micStream = null;
 let txing = false, txTimer = null, flashMsg = '', flashUntil = 0;
 let radioBuilt = false, scaleNow = 1;
-const S = {vol:.55, sq:.2, mic:.5, rf:.5, cal:.8, band:1, mode:2, fine:.5, coarse:.5, nb:1, tone:0, meter:0, ch9:1};
+const S = {vol:.55, sq:.2, mic:.5, rf:.5, cal:.8, band:1, mode:2, fine:.5, coarse:.5, nb:1, tone:0, meter:0, ch9:1, pwr:1};
+try{ if(localStorage.getItem('ra_pwr')==='0') S.pwr=0; }catch(e){}
 const tune = {band:1, ch:12};
 let prevTune = null, homeTune = null;
 
@@ -710,21 +947,34 @@ function subCtl(){
 }
 function selfPresence(){
   if(!curRoom) return null;
-  return {id:me.id,call:me.call,nm:me.nm,lat:me.lat,lon:me.lon,rk:curRoom.key,rn:curRoom.name,b:curRoom.band,c:curRoom.ch,j:joinedAt,seen:Date.now()};
+  return {id:me.id,call:me.call,nm:me.nm,lat:me.lat,lon:me.lon,rk:curRoom.key,rn:curRoom.name,b:curRoom.band,c:curRoom.ch,j:joinedAt,seen:Date.now(),
+    lk:curRoom.sec?1:0,kid:curRoom.sec?curRoom.sec.kid:undefined,ex:curRoom.sec&&curRoom.sec.ex?curRoom.sec.ex:undefined};
 }
-function pubPresence(){
+async function pubPresence(){
   if(!connected) return;
   const p = selfPresence();
   if(!p){ busPub(NS+'p/'+me.id,'',{retain:true}); return; }
-  busPub(NS+'p/'+me.id,JSON.stringify({...p,t:Date.now(),seen:undefined}),{retain:true});
+  const o={...p,t:Date.now(),seen:undefined};
+  if(curRoom&&curRoom.sec){
+    try{ o.ph=await macStr(curRoom.sec,`${o.id}|${o.rk}|${o.t}`); }catch(e){ return; }
+    if(!curRoom||curRoom.key!==o.rk) return;
+  }
+  busPub(NS+'p/'+me.id,JSON.stringify(o),{retain:true});
 }
+async function verifyPresence(p){
+  const room=curRoom; if(!room||!room.sec||p.rk!==room.key) return;
+  const ok=!!(p.lk&&p.kid===room.sec.kid&&p.ph&&await macOk(room.sec,`${p.id}|${p.rk}|${p.t}`,p.ph));
+  if(curRoom===room&&peers.get(p.id)===p&&p.ok!==ok){ p.ok=ok; onPeersChanged(); }
+}
+const b64s=x=>(typeof x==='string'&&x.length<=64&&/^[A-Za-z0-9+/=]+$/.test(x))?x:'';
 function cleanPresence(m){
   if(!m||typeof m.id!=='string'||m.id.length>16) return null;
   const b=m.b|0, c=m.c|0;
   const ok = b>=0&&b<=2&&c>=1&&c<=MAXCH;
   const num=(v,lim)=>(typeof v==='number'&&isFinite(v)&&Math.abs(v)<=lim)?v:null;
   return {id:m.id,call:String(m.call||'').slice(0,12).toUpperCase(),nm:String(m.nm||'').slice(0,30),
-    lat:num(m.lat,90),lon:num(m.lon,180),rk:ok?rkey(b,c):null,rn:String(m.rn||'').slice(0,32),b,c,j:+m.j||0,seen:Date.now()};
+    lat:num(m.lat,90),lon:num(m.lon,180),rk:ok?rkey(b,c):null,rn:String(m.rn||'').slice(0,32),b,c,j:+m.j||0,seen:Date.now(),
+    t:+m.t||0,lk:(m.lk&&b64s(m.kid))?1:0,kid:b64s(m.kid),ex:(typeof m.ex==='number'&&isFinite(m.ex)&&m.ex>0)?m.ex:0,ph:b64s(m.ph)};
 }
 function onMsg(topic,payload,packet){
   try{
@@ -736,15 +986,21 @@ function onMsg(topic,payload,packet){
       const m=JSON.parse(txt);
       if(packet&&packet.retain&&Date.now()-(+m.t||0)>180000) return;
       const p=cleanPresence(m); if(!p) return;
+      const old=peers.get(p.id);
+      if(curRoom&&curRoom.sec&&p.rk===curRoom.key){
+        p.ok=!!(old&&old.ok&&old.kid===p.kid&&old.rk===p.rk);
+        peers.set(p.id,p); onPeersChanged(); verifyPresence(p); return;
+      }
       peers.set(p.id,p); onPeersChanged();
     } else if(topic.startsWith(NS+'s/')){
       const m=JSON.parse(payload.toString());
+      if(m&&m.hs){ if(m.t==='jq'||m.t==='jp') hsMember(m); else hsJoiner(m); return; }
       if(m&&m.i){ if(seenSig.has(m.i)) return; seenSig.add(m.i); if(seenSig.size>500) seenSig.delete(seenSig.values().next().value); }
       onSig(m);
     } else if(topic.startsWith(NS+'c/')){
       onCtl(JSON.parse(payload.toString()));
     } else if(topic.startsWith(NS+'ai/')){
-      if(topic!==aiTopic) return;
+      if(topic!==aiTopic||(curRoom&&curRoom.sec)) return;
       const m=JSON.parse(payload.toString());
       if(m&&m.i){ if(seenSig.has(m.i)) return; seenSig.add(m.i); }
       onAi(m);
@@ -776,9 +1032,18 @@ function roomsMap(){
     r.members.push(p);
     if(p.j && p.j<r.j){ r.j=p.j; r.name=p.rn||r.name; }
   }
+  for(const r of map.values()){
+    const L=r.members.filter(m=>m.lk&&m.kid);
+    if(L.length){ const cnt={}; L.forEach(m=>cnt[m.kid]=(cnt[m.kid]||0)+1);
+      L.sort((a,b)=>(cnt[b.kid]-cnt[a.kid])||(a.j-b.j)); r.lk=true; r.kid=L[0].kid; r.ex=Math.max(0,...L.filter(m=>m.kid===r.kid).map(m=>m.ex||0)); }
+  }
   return map;
 }
-function roomMembers(){ const r=curRoom&&roomsMap().get(curRoom.key); return r?r.members:[]; }
+function roomMembers(){
+  const r=curRoom&&roomsMap().get(curRoom.key); if(!r) return [];
+  if(curRoom.sec) return r.members.filter(m=>m.id===me.id||(m.ok&&m.kid===curRoom.sec.kid));
+  return r.members;
+}
 function onPeersChanged(){
   if(!$('#lobby').classList.contains('hidden')) renderLobby();
   if(curRoom){ syncConns(); refreshStations(); updateStatus(); }
@@ -828,6 +1093,7 @@ async function ensureAudio(){
 }
 function applyAll(){
   if(!ac) return; const t=ac.currentTime, M=MODES[S.mode];
+  rxMute.gain.setTargetAtTime(txing||!S.pwr?0:1,t,.02);
   volGain.gain.setTargetAtTime(S.vol*S.vol*2,t,.02);
   rfGain.gain.setTargetAtTime(.1+S.rf*1.8,t,.02);
   micGain.gain.setTargetAtTime(S.mic*2.4,t,.02);
@@ -848,7 +1114,17 @@ function tailBurst(){
   burstGain.gain.cancelScheduledValues(t); burstGain.gain.setValueAtTime(.18,t); burstGain.gain.exponentialRampToValueAtTime(.001,t+.09);
 }
 
-function sig(to,t,d){ if(connected&&curRoom) busPub(NS+'s/'+to,JSON.stringify({f:me.id,r:curRoom.key,t,d,i:Math.random().toString(36).slice(2,10)+Date.now().toString(36)})); }
+let sigOut=Promise.resolve(), sigIn=Promise.resolve();
+function sig(to,t,d){
+  if(!(connected&&curRoom)) return;
+  const room=curRoom, ds=JSON.stringify(d===undefined?null:d);
+  const m={f:me.id,r:room.key,t,d:JSON.parse(ds),i:Math.random().toString(36).slice(2,10)+Date.now().toString(36)};
+  if(!room.sec){ busPub(NS+'s/'+to,JSON.stringify(m)); return; }
+  sigOut=sigOut.then(async()=>{
+    m.h=await macStr(room.sec,`${m.f}|${to}|${m.r}|${m.t}|${m.i}|${ds}`);
+    if(curRoom===room) busPub(NS+'s/'+to,JSON.stringify(m));
+  }).catch(()=>{});
+}
 function mkConn(pid){
   const pc=new RTCPeerConnection(ICE), c={pc,pid,pend:[],remote:false,born:Date.now(),src:null,audio:null};
   txDest.stream.getAudioTracks().forEach(tr=>pc.addTrack(tr,txDest.stream));
@@ -874,7 +1150,16 @@ async function callPeer(pid){
   try{ const o=await c.pc.createOffer(); await c.pc.setLocalDescription(o); sig(pid,'offer',c.pc.localDescription); }catch(e){ closeConn(pid); }
 }
 async function flush(c){ for(const x of c.pend){ try{await c.pc.addIceCandidate(x);}catch(e){} } c.pend=[]; }
-async function onSig(m){
+function onSig(m){
+  if(!m||!curRoom||m.r!==curRoom.key||typeof m.f!=='string') return;
+  const room=curRoom;
+  sigIn=sigIn.then(async()=>{
+    if(room.sec&&(typeof m.h!=='string'||!(await macOk(room.sec,`${m.f}|${me.id}|${m.r}|${m.t}|${m.i}|${JSON.stringify(m.d)}`,m.h)))) return;
+    if(curRoom!==room) return;
+    onSigRaw(m);
+  }).catch(()=>{});
+}
+async function onSigRaw(m){
   if(!curRoom||!ac||m.r!==curRoom.key||typeof m.f!=='string') return;
   const pid=m.f;
   try{
@@ -892,7 +1177,7 @@ async function onSig(m){
 }
 function syncConns(){
   if(!curRoom||!ac){ for(const id of [...conns.keys()]) closeConn(id); return; }
-  const mates=[...peers.values()].filter(p=>p.rk===curRoom.key);
+  const mates=[...peers.values()].filter(p=>p.rk===curRoom.key&&(!curRoom.sec||(p.ok&&p.kid===curRoom.sec.kid)));
   const ids=new Set(mates.map(p=>p.id));
   for(const [id,c] of [...conns]){
     if(!ids.has(id)) closeConn(id);
@@ -901,11 +1186,12 @@ function syncConns(){
   for(const p of mates) if(!conns.has(p.id) && me.id>p.id) callPeer(p.id);
 }
 
-function joinRoom(band,ch,name){
+function joinRoom(band,ch,name,sec){
   const key=rkey(band,ch);
   if(curRoom&&curRoom.key===key) return;
   if(curRoom) leaveRoom(true);
-  curRoom={key,band,ch,name:name||('Canal '+ch)}; joinedAt=Date.now(); trClear();
+  curRoom={key,band,ch,name:name||('Canal '+ch),sec:sec||null}; joinedAt=Date.now(); trClear();
+  if(curRoom.sec) for(const p of peers.values()) if(p.rk===key){ p.ok=false; verifyPresence(p); }
   subCtl(); pubPresence(); syncConns(); refreshStations(); updateStatus(); updateTitle();
 }
 function leaveRoom(silent){
@@ -921,6 +1207,10 @@ async function tuneApply(){
   const key=rkey(tune.band,tune.ch), ex=roomsMap().get(key);
   if(curRoom&&curRoom.key===key){ setOffAir(false); return; }
   if(ex){
+    if(ex.lk){
+      if(curRoom) leaveRoom(); setOffAir(true); refreshStations(); updateStatus(); updateTitle();
+      flash('SALA PRIVADA 🔒 — ENTRE PELA LISTA «SALAS ABERTAS» COM A SENHA',4500); return;
+    }
     if(!(await prepare())){ setOffAir(false); refreshStations(); updateStatus(); return; }
     joinRoom(tune.band,tune.ch,ex.name); setOffAir(false);
     if(!micOK) flash('SEM MICROFONE: permita o acesso ao microfone. Você só escuta.',5000);
@@ -928,14 +1218,20 @@ async function tuneApply(){
 }
 function setOffAir(v){ $('.disp',$('#face')).classList.toggle('blink',v); }
 function updateTitle(){ try{ $('#stCh').textContent=String(tune.ch).padStart(2,'0')+' '+BANDS[tune.band]; }catch(e){}
-  $('#roomTitle').textContent = curRoom ? `${curRoom.name} · CH ${String(curRoom.ch).padStart(2,'0')} ${BANDS[curRoom.band]}` : `CANAL ${String(tune.ch).padStart(2,'0')} ${BANDS[tune.band]} · SEM SALA`;
+  $('#roomTitle').textContent = curRoom ? `${curRoom.sec?'🔒 ':''}${curRoom.name} · CH ${String(curRoom.ch).padStart(2,'0')} ${BANDS[curRoom.band]}` : `CANAL ${String(tune.ch).padStart(2,'0')} ${BANDS[tune.band]} · SEM SALA`;
 }
 
 function ctl(on){ if(connected&&ctlTopic) busPub(ctlTopic,JSON.stringify({id:me.id,on:!!on})); }
 function onCtl(m){
   if(!curRoom||!m||typeof m.id!=='string') return;
-  if(m.k==='t'){ if(m.id!==me.id) addTr(m); return; }
+  if(m.k==='t'){
+    if(m.id===me.id) return;
+    if(curRoom.sec){ if(typeof m.x==='string'){ const room=curRoom; decTxt(room.sec,m.x).then(t=>{ if(t!=null&&curRoom===room) addTr({...m,text:t,x:undefined}); }); } }
+    else if(typeof m.x!=='string') addTr(m);
+    return;
+  }
   if(m.id===me.id) return;
+  if(curRoom.sec){ const pp=peers.get(m.id); if(!pp||!pp.ok||pp.kid!==curRoom.sec.kid) return; }
   if(m.on){ speak.set(m.id,Date.now()); if(txing && m.id<me.id) { stopTx(); flash('COLISÃO — CANAL TOMADO'); } }
   else speak.delete(m.id);
   refreshStations(); updateStatus();
@@ -943,6 +1239,7 @@ function onCtl(m){
 function othersTx(){ for(const [id,t] of speak) if(id!==me.id && Date.now()-t<4000) return id; return null; }
 function startTx(){
   if(txing||!curRoom||!ac) return;
+  if(!S.pwr){ flash('RÁDIO DESLIGADO — USE O BOTÃO POWER'); return; }
   const cw=MODES[S.mode].n==='CW';
   if(!micOK&&!cw){ flash('MICROFONE INDISPONÍVEL (VERIFIQUE A PERMISSÃO)'); return; }
   if(othersTx()){ beep(330,.12,.15); beep(330,.12,.15,.18); flash('CANAL OCUPADO'); $('#mic').classList.add('busy'); setTimeout(()=>$('#mic').classList.remove('busy'),300); return; }
@@ -957,7 +1254,7 @@ function startTx(){
 function stopTx(){
   if(!txing) return; txing=false; clearInterval(txTimer);
   const t=ac.currentTime;
-  voiceGate.gain.setTargetAtTime(0,t,.01); toneGate.gain.setTargetAtTime(0,t,.005); rxMute.gain.setTargetAtTime(1,t,.03);
+  voiceGate.gain.setTargetAtTime(0,t,.01); toneGate.gain.setTargetAtTime(0,t,.005); rxMute.gain.setTargetAtTime(S.pwr?1:0,t,.03);
   speak.delete(me.id); ctl(false); $('#mic').classList.remove('tx'); refreshStations(); updateStatus();
   stopSR();
 }
@@ -968,7 +1265,7 @@ const RA={transcript:[],onTranscript:null,
   clear(){ trClear(); },
   sendText(text,call){ return publishTr(String(text||''),'ai',call); },
   sendAudio(b64,mime,text,call){ return aiPlay(b64,mime,text,call); },
-  async join(call,band,ch,name){ $('#call').value=call; await enter({band:+band,ch:+ch,name:name||('Canal '+ch)}); return !!curRoom; },
+  async join(call,band,ch,name,pass){ $('#call').value=call; await enter({band:+band,ch:+ch,name:name||('Canal '+ch)},pass||null); return !!curRoom; },
   status(){ return JSON.stringify({room:curRoom&&curRoom.key,name:curRoom&&curRoom.name,call:me.call,lat:me.lat,lon:me.lon,online:connected,mic:micOK,stations:roomMembers().map(p=>({call:p.call,nm:p.nm,lat:p.lat,lon:p.lon}))}); },
   topics(){ return JSON.stringify({ns:NS,transcript:ctlTopic,audioIn:aiTopic,brokers:BROKERS}); }
 };
@@ -1007,7 +1304,12 @@ function publishTr(text,src,callOver){
   text=String(text||'').trim(); if(!text||!curRoom) return false;
   const m={k:'t',id:me.id,i:Math.random().toString(36).slice(2,10)+Date.now().toString(36),ts:new Date().toISOString(),
     room:curRoom.name,ch:curRoom.ch,band:curRoom.band,call:(callOver||me.call),nm:src==='ai'?'IA':me.nm,lat:me.lat,lon:me.lon,text:text.slice(0,1000),src:src||'voice'};
-  addTr(m); if(connected&&ctlTopic) busPub(ctlTopic,JSON.stringify(m)); return true;
+  addTr(m);
+  if(connected&&ctlTopic){
+    if(curRoom.sec){ const room=curRoom; encTxt(room.sec,m.text).then(x=>{ if(curRoom===room&&connected&&ctlTopic) busPub(ctlTopic,JSON.stringify({...m,text:'',x})); }).catch(()=>{}); }
+    else busPub(ctlTopic,JSON.stringify(m));
+  }
+  return true;
 }
 function trClear(){ RA.transcript.length=0; $('#trList').innerHTML='<div class="none">Nenhuma fala transcrita ainda.</div>'; $('#raFeed').textContent=''; }
 function dl(name,mime,data){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([data],{type:mime})); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500); }
@@ -1020,24 +1322,32 @@ $('#trCopy').onclick=async()=>{ try{ await navigator.clipboard.writeText(JSON.st
 $('#trClear').onclick=trClear;
 trClear();
 
-let sr=null, srWant=false;
+let sr=null, srWant=false, srLast={t:'',at:0};
+function srMake(SR){
+  const r=new SR(); r.lang='pt-BR'; r.continuous=true; r.interimResults=false; r.maxAlternatives=1;
+  r.onresult=ev=>{ for(let i=ev.resultIndex;i<ev.results.length;i++) if(ev.results[i].isFinal){
+    const t=ev.results[i][0].transcript.trim(); if(!t) continue;
+    const now=Date.now(); if(t===srLast.t&&now-srLast.at<2500) continue; srLast={t,at:now};
+    publishTr(t,'voice'); } };
+  r.onerror=ev=>{
+    const er=ev&&ev.error; if(er==='no-speech'||er==='aborted') return;
+    $('#trNote').textContent='Transcrição falhou: '+er+(er==='not-allowed'||er==='service-not-allowed'?' (permissão do microfone/HTTPS)':er==='network'?' (sem acesso ao serviço de voz do Chrome)':er==='audio-capture'?' (microfone ocupado)':'');
+    if(er==='not-allowed'||er==='service-not-allowed'||er==='audio-capture'){ srWant=false; flash('TRANSCRIÇÃO: '+er); }
+  };
+  r.onend=()=>{ if(srWant&&txing&&sr===r){ setTimeout(()=>{ if(!(srWant&&txing)) return; try{ sr=srMake(SR); sr.start(); }catch(e){} },250); } };
+  return r;
+}
 function startSR(){
   if(!$('#trOn').checked) return;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){ $('#trNote').textContent='Este navegador não tem reconhecimento de fala (use Chrome/Edge). Sua fala não será transcrita.'; return; }
-  try{
-    sr=new SR(); sr.lang='pt-BR'; sr.continuous=true; sr.interimResults=false;
-    sr.onresult=ev=>{ for(let i=ev.resultIndex;i<ev.results.length;i++) if(ev.results[i].isFinal){ const t=ev.results[i][0].transcript.trim(); if(t) publishTr(t,'voice'); } };
-    sr.onerror=()=>{};
-    sr.onend=()=>{ if(srWant&&txing){ try{ sr.start(); }catch(e){} } };
-    srWant=true; sr.start();
-  }catch(e){}
+  try{ srWant=true; sr=srMake(SR); sr.start(); $('#trNote').textContent='Transcrevendo sua fala…'; }catch(e){ $('#trNote').textContent='Falha ao iniciar transcrição: '+e.message; }
 }
-function stopSR(){ srWant=false; try{ sr&&sr.stop(); }catch(e){} }
+function stopSR(){ srWant=false; const r=sr; setTimeout(()=>{ try{ r&&r.stop(); }catch(e){} },700); }
 
 let aiBusy=false;
 async function aiPlay(b64,mime,text,call){
-  if(!curRoom||!ac||typeof b64!=='string'||!b64) return false;
+  if(!S.pwr||!curRoom||!ac||typeof b64!=='string'||!b64) return false;
   if(aiBusy) return false; aiBusy=true;
   try{
     for(let k=0;k<50&&(txing||othersTx());k++) await sleep(200);
@@ -1094,7 +1404,8 @@ function initMap(){
 const LAY={air:true,iss:true};
 try{ const sv=JSON.parse(localStorage.getItem('ra_layers')||'null'); if(sv){ LAY.air=sv.air!==false; LAY.iss=sv.iss!==false; } }catch(e){}
 const AIR_MINZ=6;
-const AIR_SRC=[
+const PROXIES=[u=>'https://corsproxy.io/?url='+encodeURIComponent(u),u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u),u=>'https://api.codetabs.com/v1/proxy/?quest='+encodeURIComponent(u)];
+const AIR_SRC0=[
   {n:'adsb.lol',u:(a,o,r)=>`https://api.adsb.lol/v2/point/${a}/${o}/${r}`},
   {n:'adsb.fi',u:(a,o,r)=>`https://opendata.adsb.fi/api/v2/lat/${a}/lon/${o}/dist/${r}`},
   {n:'adsb.one',u:(a,o,r)=>`https://api.adsb.one/v2/point/${a}/${o}/${r}`},
@@ -1104,16 +1415,44 @@ const AIR_SRC=[
     p:d=>Array.isArray(d&&d.states)?d.states.filter(s=>s[5]!=null&&s[6]!=null).map(s=>({hex:s[0],flight:s[1]||'',lon:s[5],lat:s[6],
       alt_baro:s[8]?'ground':(s[7]!=null?Math.round(s[7]*3.28084):null),gs:(s[9]||0)*1.94384,track:s[10]||0,seen_pos:0})):(d&&d.states===null?[]:null)}
 ];
-let airPref=0, airDiag=[];
+const AIR_SRC=[...AIR_SRC0];
+for(const sr of [AIR_SRC0[0],AIR_SRC0[3]]) PROXIES.forEach((px,k)=>AIR_SRC.push({n:sr.n+' (proxy '+(k+1)+')',u:(a,o,r)=>px(sr.u(a,o,r)),p:sr.p}));
+let airPref=0, airDiag=[], airSrc='';
+const errTxt=e=>e&&e.name==='AbortError'?'tempo esgotado':((e&&e.message)||'falhou');
 async function airTile(t){
   const errs=[];
   for(let k=0;k<AIR_SRC.length;k++){
     const i=(airPref+k)%AIR_SRC.length, sr=AIR_SRC[i];
     try{
-      const d=await getJSON(sr.u(t.lat.toFixed(3),t.lon.toFixed(3),t.nm),8000), l=sr.p?sr.p(d):(d&&(d.ac||d.aircraft));
-      if(Array.isArray(l)){ airPref=i; return l; }
+      const d=await getJSON(sr.u(t.lat.toFixed(3),t.lon.toFixed(3),t.nm),7000), l=sr.p?sr.p(d):(d&&(d.ac||d.aircraft));
+      if(Array.isArray(l)){ airPref=i; airSrc=sr.n.replace(/ \(proxy \d\)/,''); return l; }
       errs.push(sr.n+': resposta inválida');
-    }catch(e){ errs.push(sr.n+': '+(e&&e.name==='AbortError'?'tempo esgotado':((e&&e.message)||'falhou'))); }
+    }catch(e){ errs.push(sr.n+': '+errTxt(e)); }
+  }
+  airDiag.push(...errs); return null;
+}
+const FR_URL=b=>`https://data-cloud.flightradar24.com/zones/fcgi/feed.js?faa=1&bounds=${b.n.toFixed(2)},${b.s.toFixed(2)},${b.w.toFixed(2)},${b.e.toFixed(2)}&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=0&estimated=1&maxage=14400&gliders=0&stats=0`;
+const FR_ROUTES=[u=>u,...PROXIES];
+let frPref=0;
+function frParse(d){
+  if(!d||typeof d!=='object') return null;
+  const out=[];
+  for(const k in d){
+    const a=d[k]; if(!Array.isArray(a)||a.length<15||typeof a[0]!=='string') continue;
+    out.push({hex:a[0],lat:a[1],lon:a[2],track:a[3],alt_baro:a[14]?'ground':a[4],gs:a[5],flight:a[16]||a[13]||'',r:a[9]||'',t:a[8]||'',seen_pos:0});
+  }
+  return out;
+}
+async function frFetch(){
+  const b=map.getBounds(), bb={n:Math.min(90,b.getNorth()),s:Math.max(-90,b.getSouth()),w:Math.max(-180,b.getWest()),e:Math.min(180,b.getEast())};
+  const url=FR_URL(bb), errs=[];
+  for(let k=0;k<FR_ROUTES.length;k++){
+    const i=(frPref+k)%FR_ROUTES.length;
+    try{
+      const l=frParse(await getJSON(FR_ROUTES[i](url),9000));
+      if(l){ frPref=i; airSrc='Flightradar24'; return l; }
+      errs.push('flightradar24'+(i?' (proxy '+i+')':'')+': resposta inválida');
+    }catch(e){ errs.push('flightradar24'+(i?' (proxy '+i+')':'')+': '+errTxt(e)); }
   }
   airDiag.push(...errs); return null;
 }
@@ -1140,7 +1479,7 @@ function ctlRefresh(){
 function initLayers(){
   map.createPane('air').style.zIndex=450;
   map.createPane('iss').style.zIndex=460;
-  map.attributionControl.addAttribution('Aviões: adsb.lol/adsb.fi/adsb.one · ISS: wheretheiss.at');
+  map.attributionControl.addAttribution('Aviões: Flightradar24 / adsb.lol / airplanes.live · ISS: wheretheiss.at');
   const Ctl=L.Control.extend({options:{position:'topright'},onAdd(){
     const d=L.DomUtil.create('div','mapctl');
     d.innerHTML='<button type="button" data-k="air">✈ AVIÕES</button><button type="button" data-k="iss">🛰 ISS</button><button type="button" data-k="fr24" class="on" style="opacity:1;color:#ffd35a;border-color:#c9a02e">↗ FLIGHTRADAR24</button><small></small>';
@@ -1211,16 +1550,21 @@ function viewTiles(){
 async function fetchAir(force){
   if(!map||!LAY.air||airBusy||document.hidden) return;
   const now=Date.now(); if(!force&&now-airLast<4000) return;
-  const tiles=map.getZoom()>=AIR_MINZ?viewTiles():null;
-  if(!tiles){ clearAir(); airMsg='aproxime o mapa (zoom ≥ '+AIR_MINZ+')'; ctlRefresh(); return; }
+  if(map.getZoom()<AIR_MINZ){ clearAir(); airMsg='aproxime o mapa (zoom ≥ '+AIR_MINZ+')'; ctlRefresh(); return; }
   airBusy=true; airLast=now; airDiag=[];
   try{
-    const all=new Map();
-    const res=[];
-    for(let i=0;i<tiles.length;i++){ if(i) await sleep(1100); res.push(await airTile(tiles[i])); }
-    if(res.every(r=>r===null)) throw new Error('sem dados');
-    for(const l of res) if(l) for(const a of l) all.set(a.hex,a);
-    applyAir([...all.values()]);
+    let list=await frFetch();
+    if(!list){
+      const tiles=viewTiles();
+      if(!tiles) throw new Error('sem dados');
+      const res=[];
+      for(let i=0;i<tiles.length;i++){ if(i) await sleep(1100); res.push(await airTile(tiles[i])); }
+      if(res.every(r=>r===null)) throw new Error('sem dados');
+      const all=new Map();
+      for(const l of res) if(l) for(const a of l) all.set(a.hex,a);
+      list=[...all.values()];
+    }
+    applyAir(list);
   }catch(e){ airMsg='sem dados de aviões (toque aqui p/ detalhes)'; ctlRefresh(); }
   finally{ airBusy=false; }
 }
@@ -1246,7 +1590,7 @@ function applyAir(list){
     }
   }
   for(const [h,m] of [...airMk]) if(!seen.has(h)){ map.removeLayer(m.mk); airMk.delete(h); }
-  airMsg=airMk.size+' aeronave'+(airMk.size===1?'':'s')+' no ar'; ctlRefresh();
+  airMsg=airMk.size+' aeronave'+(airMk.size===1?'':'s')+' no ar'+(airSrc?' · '+airSrc:''); ctlRefresh();
 }
 
 const ISS_SVG='<svg viewBox="0 0 32 32" fill="#ffd6f6" stroke="#5a0d4a" stroke-width="1"><rect x="2" y="7" width="9" height="6"/><rect x="2" y="19" width="9" height="6"/><rect x="21" y="7" width="9" height="6"/><rect x="21" y="19" width="9" height="6"/><rect x="11" y="15" width="10" height="2"/><rect x="13.5" y="9" width="5" height="14" rx="2"/></svg>';
@@ -1401,12 +1745,12 @@ function buildDisplay(){
   dispSvg.innerHTML=h; d.appendChild(dispSvg);
 }
 function setDigits(n){
-  const s=String(n).padStart(2,'0');
-  dispSvg.querySelectorAll('polygon').forEach(p=>{ const on=DIG[s[+p.dataset.d]].includes(p.dataset.s); p.setAttribute('class',on?'on':'off'); });
+  const s=S.pwr?String(n).padStart(2,'0'):'--';
+  dispSvg.querySelectorAll('polygon').forEach(p=>{ const on=(DIG[s[+p.dataset.d]]||'').includes(p.dataset.s); p.setAttribute('class',on?'on':'off'); });
 }
 function updateDisplay(){
   setDigits(tune.ch);
-  $('#lcdinfo').textContent=`${freqOf(tune.band,tune.ch)} MHz · ${BANDS[tune.band]} · ${MODES[S.mode].n}`;
+  $('#lcdinfo').textContent=S.pwr?`${freqOf(tune.band,tune.ch)} MHz · ${BANDS[tune.band]} · ${MODES[S.mode].n}`:'';
   updateTitle();
 }
 
@@ -1442,6 +1786,11 @@ function buildRadio(){
   SW.tone=Switch({cx:385,cy:86,n:2,state:0,name:'Tom',onChange:s=>{S.tone=s;applyAll();}});
   lab('CH9',485,40); lab('OFF',485,124);
   SW.ch9=Switch({cx:485,cy:84,n:2,state:1,name:'Canal 9',onChange:onCh9});
+  lab('POWER',545,40);
+  const pb=el('button','pwrbtn',face,{left:'527px',top:'66px'}); pb.type='button'; pb.id='pwrBtn'; pb.setAttribute('aria-label','Ligar ou desligar o rádio');
+  pb.innerHTML='<svg viewBox="0 0 24 24"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>';
+  pb.onclick=()=>setPower(S.pwr?0:1);
+  const pl=el('div','pled',face,{left:'539px',top:'108px'}); pl.id='pled'; lab('ON/OFF',545,128,'s');
   const led=el('div','led idle',face); led.id='led'; lab('TX/RX',601,98,'s');
   buildDisplay(); const li=el('div','lcdinfo',face); li.id='lcdinfo';
   lab('VOL — SQ',68,163);
@@ -1464,8 +1813,18 @@ function buildRadio(){
     onChange:i=>{tune.ch=i+1;updateDisplay();scheduleTune(350);}});
   lab('CANAL ◂ ▸',740,290,'s');
   lab('CRIADO POR BRUNO NUNES DA SILVA',215,296,'s');
-  applySkin(); updateDisplay(); fit(); makeCord();
+  applySkin(); setPower(S.pwr,true); fit(); makeCord();
   requestAnimationFrame(tick);
+}
+function setPower(v,quiet){
+  S.pwr=v?1:0; try{ localStorage.setItem('ra_pwr',String(S.pwr)); }catch(e){}
+  if(!S.pwr&&txing) stopTx();
+  const pb=$('#pbox'); if(pb) pb.classList.toggle('off',!S.pwr);
+  const b=$('#pwrBtn'), l=$('#pled');
+  if(b){ b.classList.toggle('on',!!S.pwr); b.setAttribute('aria-pressed',S.pwr?'true':'false'); }
+  if(l) l.classList.toggle('on',!!S.pwr);
+  applyAll(); if(radioBuilt) updateDisplay(); updateStatus();
+  if(!quiet&&S.pwr) beep(880,.08,.12);
 }
 function onCh9(s){
   S.ch9=s;
@@ -1503,14 +1862,14 @@ function tick(){
     if(txing){ txLev = M.n==='CW' ? .72 : Math.min(1,Math.max(0,(20*Math.log10(Math.max(rms(micAn,tbuf),1e-5))+52)/46)); }
     speakHeartbeat();
   }
-  const led=$('#led'); led.className='led '+(txing?'tx':(sqOpen&&curRoom?'rx':'idle'));
+  const led=$('#led'); led.className='led '+(!S.pwr?'off':(txing?'tx':(sqOpen&&curRoom?'rx':'idle')));
   swrBase=1.3+.18*Math.sin(now/2600)+.04*Math.sin(now/310);
   let target=0,label='S/RF',extra='';
   if(S.meter===0){ target=txing?txLev:sLev; label='S/RF'; extra=txing?'TX':(sqOpen?'RX':''); }
   else if(S.meter===2){ label='CAL'; target=S.cal; extra=(S.cal>.74&&S.cal<.86)?'OK':''; }
   else { label='SWR'; const sw=Math.min(3,Math.max(1,1+(swrBase-1)*(S.cal/.8))); if(txing){ target=(sw-1)/2; extra=sw.toFixed(1)+':1'; } else { target=0; extra='-- TX'; } }
   meterV += (target-meterV)*(target>meterV?.45:.12);
-  drawMeter(meterV,label,extra);
+  if(S.pwr) drawMeter(meterV,label,extra); else { meterV=0; mc.fillStyle='#000'; mc.fillRect(0,0,260,104); }
 }
 let lastHb=0;
 function speakHeartbeat(){ const n=Date.now(); if(n-lastHb>600){ lastHb=n; if(curRoom){ let ch=false; for(const [id,t] of speak) if(id!==me.id&&n-t>4000){speak.delete(id);ch=true;} if(ch){refreshStations();updateStatus();} } } }
@@ -1531,6 +1890,7 @@ window.addEventListener('keyup',e=>{ if(e.code==='Space'&&!lockMode()) stopTx();
 window.addEventListener('blur',()=>{ if(!lockMode()) stopTx(); });
 
 for(let i=1;i<=MAXCH;i++){ const o=document.createElement('option'); o.value=i; o.textContent=String(i).padStart(2,'0'); $('#rch').appendChild(o); }
+for(const [v,l] of TTLS){ const o=document.createElement('option'); o.value=v; o.textContent=l; $('#rttl').appendChild(o); }
 $('#rch').value=12;
 function renderLobby(){
   const rs=[...roomsMap().values()].sort((a,b)=>b.members.length-a.members.length||a.key.localeCompare(b.key));
@@ -1542,8 +1902,11 @@ function renderLobby(){
     const row=el('div','room',box);
     row.innerHTML='<div class="rch"></div><div class="rinfo"><b></b><small></small></div><button class="btn go" type="button">ENTRAR</button><button class="btn lk" type="button" title="Copiar link de convite">🔗</button>';
     $('.rch',row).textContent=String(r.ch).padStart(2,'0');
-    $('b',row).textContent=r.name;
-    $('small',row).textContent=`${BANDS[r.band]} · ${freqOf(r.band,r.ch)} MHz · ${r.members.length} no ar: ${r.members.map(m=>m.call||'?').join(', ')}`;
+    $('b',row).textContent=(r.lk?'🔒 ':'')+r.name;
+    const exp=!!(r.lk&&r.ex&&Date.now()>r.ex);
+    $('small',row).textContent=r.lk?`${BANDS[r.band]} · ${freqOf(r.band,r.ch)} MHz · privada${r.ex?(exp?' · senha expirada':' · senha até '+new Date(r.ex).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})):''} · ${r.members.length} no ar`:`${BANDS[r.band]} · ${freqOf(r.band,r.ch)} MHz · ${r.members.length} no ar: ${r.members.map(m=>m.call||'?').join(', ')}`;
+    if(r.lk) $('.go',row).textContent=exp?'🔒 FECHADA':'🔒 ENTRAR';
+    if(exp){ $('.go',row).disabled=true; $('.go',row).style.opacity=.5; }
     $('.go',row).onclick=()=>enter({band:r.band,ch:r.ch,name:r.name});
     $('.lk',row).onclick=()=>shareRoom(r.key,r.name);
   }
@@ -1575,13 +1938,33 @@ async function prepare(){
   if(okc(la,lo)){ me.lat=Math.round(la*100)/100; me.lon=Math.round(lo*100)/100; } else { me.lat=null; me.lon=null; }
   saveMe(); await ensureAudio(); applyAll(); return true;
 }
-async function enter(room){
+async function enter(room,pass,mins){
   if(!(await prepare())) return;
   const ex0=roomsMap().get(rkey(room.band,room.ch)); if(ex0) room={...room,name:ex0.name};
+  let sec=null;
+  if(ex0&&ex0.lk){
+    if(!hasCrypto()){ bad('Sala privada exige HTTPS (contexto seguro).'); flash('SALA PRIVADA EXIGE HTTPS'); return; }
+    if(ex0.ex&&Date.now()>ex0.ex){ bad('A senha desta sala expirou: não entra mais ninguém.'); flash('SENHA DA SALA EXPIROU',4000); return; }
+    const cands=ex0.members.filter(m=>m.id!==me.id&&m.lk&&m.kid===ex0.kid).map(m=>m.id);
+    let pw=pass, err='';
+    for(;;){
+      if(pw==null) pw=await askPass(room.name,err);
+      if(pw==null) return;
+      if(pw===''){ pw=null; err='Digite a senha.'; continue; }
+      flash('VERIFICANDO SENHA…',3000);
+      const r=await hsJoin(rkey(room.band,room.ch),pw,cands);
+      if(r.sec){ sec=r.sec; break; }
+      if(r.e==='exp'){ bad('A senha desta sala expirou: não entra mais ninguém.'); flash('SENHA DA SALA EXPIROU',4000); return; }
+      err=r.e==='timeout'?'Ninguém da sala respondeu. Tente de novo.':'Senha incorreta. Tente de novo.'; pw=null;
+    }
+  } else if(!ex0&&pass){
+    if(!hasCrypto()){ bad('Senha exige HTTPS (contexto seguro).'); flash('SENHA EXIGE HTTPS'); return; }
+    sec=await secNew(pass,mins);
+  }
   tune.band=room.band; tune.ch=room.ch; S.band=room.band; prevTune=null; homeTune={band:room.band,ch:room.ch};
   K.band.set(tune.band); K.ch.set(tune.ch-1); SW.ch9.set(1); S.ch9=1;
   updateDisplay(); setOffAir(false);
-  joinRoom(room.band,room.ch,room.name);
+  joinRoom(room.band,room.ch,room.name,sec);
   window.scrollTo({top:0,behavior:'smooth'});
   if(!micOK) flash('SEM MICROFONE: permita o acesso ao microfone. Você só escuta.',5000);
   refreshStations(); updateStatus();
@@ -1589,13 +1972,19 @@ async function enter(room){
 $('#create').onclick=()=>{
   const name=$('#rname').value.trim()||('Sala '+$('#rch').value), b=+$('#rband').value, c=+$('#rch').value;
   if(roomsMap().has(rkey(b,c))){ bad('Esse canal já tem sala.'); return; }
-  enter({band:b,ch:c,name:name.slice(0,32)});
+  const pass=$('#rpass').value;
+  if(pass&&pass.length<PW_MIN){ bad('Senha: mínimo '+PW_MIN+' caracteres.'); return; }
+  enter({band:b,ch:c,name:name.slice(0,32)},pass||null,+$('#rttl').value||0).then(()=>{ if(curRoom) $('#rpass').value=''; });
 };
 $('#leave').onclick=()=>{ if(txing) stopTx(); homeTune=null; leaveRoom(); setOffAir(false); refreshStations(); updateStatus(); updateTitle(); renderLobby(); };
 $('#createHere').onclick=async()=>{
   if(!(await prepare())) return;
+  if(roomsMap().has(rkey(tune.band,tune.ch))){ flash('ESTE CANAL JÁ TEM SALA — ENTRE PELA LISTA'); return; }
   const n=prompt('Nome da nova sala neste canal:',`Sala ${tune.ch}`); if(n===null) return;
-  joinRoom(tune.band,tune.ch,(n.trim()||`Sala ${tune.ch}`).slice(0,32)); homeTune={band:tune.band,ch:tune.ch}; setOffAir(false);
+  const np=await askNewPass(); if(np===null) return;
+  let sec=null;
+  if(np.pw){ if(!hasCrypto()){ flash('SENHA EXIGE HTTPS'); return; } sec=await secNew(np.pw,np.mins); }
+  joinRoom(tune.band,tune.ch,(n.trim()||`Sala ${tune.ch}`).slice(0,32),sec); homeTune={band:tune.band,ch:tune.ch}; setOffAir(false);
 };
 setInterval(()=>{ if(!$('#lobby').classList.contains('hidden')) renderLobby(); },4000);
 
@@ -1622,32 +2011,73 @@ function parseInvite(){
 $('#invGo').onclick=async()=>{
   const c=$('#invCall').value.trim().toUpperCase().replace(/[^A-Z0-9\/]/g,'');
   if(c.length<3){ $('#invTxt').textContent='Informe seu indicativo (mín. 3 letras/números) para entrar.'; $('#invCall').focus(); return; }
-  $('#call').value=c; await enter(invite);
+  $('#call').value=c; await enter(invite,$('#invPass').value||null);
   if(curRoom){ $('#inviteBox').classList.add('hidden'); try{ history.replaceState(null,'',location.href.split('#')[0]); }catch(e){} }
 };
-const SKIN_DEF={s497:{ka:'#35b7ff',kd:'#4fd0ff',kf:'#05070b'},s955:{ka:'#39ff5a',kd:'#39ff5a',kf:'#040805'}};
-const SK={skin:'s497',c:{s497:{...SKIN_DEF.s497},s955:{...SKIN_DEF.s955}}};
+const SKIN_DEF={s497:{ka:'#35b7ff',kd:'#4fd0ff',kf:'#05070b',mf:''},s955:{ka:'#39ff5a',kd:'#39ff5a',kf:'#040805',mf:''},c148:{ka:'#e8e8e8',kd:'#ff2a1a',kf:'#0d0d0f',mf:''}};
+const SK={skin:'s497',c:{}};
+for(const k in SKIN_DEF) SK.c[k]={...SKIN_DEF[k]};
+const FIN={
+  prata:{n:'Prata',m0:'#b9bcc2',m1:'#eceef1',m2:'#8d9097',t:'#14161a'},
+  grafite:{n:'Grafite',m0:'#3b3e44',m1:'#6a6e76',m2:'#23252a',t:'#e8ecf2'},
+  ouro:{n:'Ouro',m0:'#b8903a',m1:'#f0d47e',m2:'#7e5f1d',t:'#1a1204'},
+  bronze:{n:'Bronze',m0:'#8a5a34',m1:'#d09a69',m2:'#4f2f16',t:'#fff1e0'},
+  azul:{n:'Azul',m0:'#27508f',m1:'#6f9be0',m2:'#0f2750',t:'#eaf3ff'},
+  vermelho:{n:'Vermelho',m0:'#9c1f1f',m1:'#e66a6a',m2:'#4f0b0b',t:'#fff0f0'},
+  verde:{n:'Verde',m0:'#1f6b43',m1:'#6fcf9c',m2:'#0b3321',t:'#eafff3'}
+};
+const PRE=[
+  {n:'Cobra 148 GTL',ka:'#e8e8e8',kd:'#ff2a1a',kf:'#0d0d0f',mf:''},
+  {n:'148 GTL Grafite',ka:'#d9dde3',kd:'#ff2a1a',kf:'#1a1b1e',mf:'grafite'},
+  {n:'Cobra 29 LTD',ka:'#ffb000',kd:'#ffb000',kf:'#0e0b05',mf:''},
+  {n:'Galaxy Prata',ka:'#35b7ff',kd:'#35b7ff',kf:'#0b0f16',mf:'prata'},
+  {n:'Uniden Bearcat',ka:'#39ff5a',kd:'#39ff5a',kf:'#040805',mf:''},
+  {n:'President Bronze',ka:'#ffd35a',kd:'#ffb000',kf:'#120d06',mf:'bronze'},
+  {n:'Super Star Cromado',ka:'#ff4040',kd:'#ff2a1a',kf:'#0b0b0d',mf:'prata'},
+  {n:'Ranger Azul',ka:'#4fd0ff',kd:'#4fd0ff',kf:'#050a14',mf:'azul'},
+  {n:'Connex Verde',ka:'#7dff6a',kd:'#7dff6a',kf:'#06100a',mf:'verde'},
+  {n:'Dourado',ka:'#ffd35a',kd:'#ff9a1f',kf:'#120d06',mf:'ouro'},
+  {n:'Vermelho Metal',ka:'#ff5a5a',kd:'#ff3a3a',kf:'#150505',mf:'vermelho'},
+  {n:'Gelo Ciano',ka:'#00d4ff',kd:'#00d4ff',kf:'#031018',mf:''}
+];
 try{ const o=JSON.parse(localStorage.getItem('ra_skin')||'null'); if(o&&(o.skin==='classic'||SKIN_DEF[o.skin])){ SK.skin=o.skin; for(const k in SKIN_DEF) SK.c[k]={...SKIN_DEF[k],...((o.c&&o.c[k])||{})}; } }catch(e){}
 let MC=null;
 const hexOk=h=>/^#[0-9a-f]{6}$/i.test(h);
 const rgbaK=(h,a)=>{ const n=parseInt(h.slice(1),16); return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`; };
 const mixK=(h,t,k)=>{ const a=parseInt(h.slice(1),16), b=parseInt(t.slice(1),16); return '#'+[16,8,0].map(sh=>Math.round((a>>sh&255)*(1-k)+(b>>sh&255)*k).toString(16).padStart(2,'0')).join(''); };
+const spPre=$('#spPre'), spFin=$('#spFin');
+for(const p of PRE){
+  const b=document.createElement('button'), i=document.createElement('i'), f=FIN[p.mf]; b.type='button';
+  i.style.background=`linear-gradient(135deg,${f?f.m1:p.kf} 0 50%,${p.kd} 50%)`;
+  b.appendChild(i); b.appendChild(document.createTextNode(p.n));
+  b.onclick=()=>{ if(SK.skin==='classic') return; Object.assign(SK.c[SK.skin],{ka:p.ka,kd:p.kd,kf:p.kf,mf:p.mf}); applySkin(); };
+  spPre.appendChild(b);
+}
+for(const [k,n] of [['','Fosco'],...Object.entries(FIN).map(([k,v])=>[k,v.n])]){
+  const b=document.createElement('button'); b.type='button'; b.dataset.f=k; b.textContent=n;
+  b.style.background=k?`linear-gradient(115deg,${FIN[k].m1},${FIN[k].m0} 40%,${FIN[k].m2})`:'#0b0f16'; b.style.color=k?FIN[k].t:'#a8d4f5';
+  b.onclick=()=>{ if(SK.skin==='classic') return; SK.c[SK.skin].mf=k; applySkin(); };
+  spFin.appendChild(b);
+}
 function applySkin(){
   const pb=$('#pbox'), s=SK.skin, cl=s==='classic';
   pb.classList.toggle('sk',!cl); pb.dataset.skin=s;
   if(!cl){
     const c=SK.c[s]; for(const k of ['ka','kd','kf']) if(!hexOk(c[k])) c[k]=SKIN_DEF[s][k];
+    if(c.mf&&!FIN[c.mf]) c.mf='';
     const v=(n,x)=>pb.style.setProperty(n,x);
+    const f=FIN[c.mf]; pb.classList.toggle('met',!!f);
+    if(f){ v('--m0',f.m0); v('--m1',f.m1); v('--m2',f.m2); v('--mt',f.t); }
     v('--ka',c.ka); v('--kg',rgbaK(c.ka,.55)); v('--kg2',rgbaK(c.ka,.25)); v('--kd',c.kd); v('--kdoff',rgbaK(c.kd,.1)); v('--kf',c.kf); v('--kf2',mixK(c.kf,'#ffffff',.14));
     MC={b0:mixK(c.kf,c.kd,.1),b1:mixK(c.kf,c.kd,.3),b2:mixK(c.kf,c.kd,.12),t:c.kd};
-  } else MC=null;
+  } else { MC=null; pb.classList.remove('met'); }
   const br=$('#brand'); if(br) br.innerHTML=s==='s497'?'STRYKER<small>SR-497HPC · 10 METER</small>':s==='s955'?'STRYKER<small>SR-955HP · 10 METER</small>':'HamNet 148<small>GTL · DX</small>';
-  document.querySelectorAll('.sp-styles button').forEach(b=>b.classList.toggle('on',b.dataset.s===s));
+  document.querySelectorAll('.sp-styles:not(.sp-two) button').forEach(b=>b.classList.toggle('on',b.dataset.s===s));
   $('#spColors').classList.toggle('hidden',cl);
-  if(!cl){ const c=SK.c[s]; $('#cKa').value=c.ka; $('#cKd').value=c.kd; $('#cKf').value=c.kf; $('#spName').textContent=s==='s497'?'SR-497HPC':'SR-955HP'; }
+  if(!cl){ const c=SK.c[s]; $('#cKa').value=c.ka; $('#cKd').value=c.kd; $('#cKf').value=c.kf; $('#spName').textContent=({s497:'SR-497HPC',s955:'SR-955HP',c148:'148 GTL'})[s]; spFin.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.f===(c.mf||''))); }
   try{ localStorage.setItem('ra_skin',JSON.stringify(SK)); }catch(e){}
 }
-document.querySelectorAll('.sp-styles button').forEach(b=>b.onclick=()=>{ SK.skin=b.dataset.s; applySkin(); });
+document.querySelectorAll('.sp-styles:not(.sp-two) button').forEach(b=>b.onclick=()=>{ SK.skin=b.dataset.s; applySkin(); });
 for(const [id,k] of [['#cKa','ka'],['#cKd','kd'],['#cKf','kf']]) $(id).oninput=e=>{ SK.c[SK.skin][k]=e.target.value; applySkin(); };
 $('#spReset').onclick=()=>{ if(SK.skin!=='classic'){ SK.c[SK.skin]={...SKIN_DEF[SK.skin]}; applySkin(); } };
 document.querySelectorAll('[data-skinbtn]').forEach(b=>b.onclick=()=>$('#skinPanel').classList.toggle('hidden'));
@@ -1691,6 +2121,15 @@ $('#resetCtl').onclick=resetControls;
   }
 })();
 buildRadio(); renderLobby(); updateStatus(); parseInvite();
+function mstripInit(){
+  const bind=(id,key,kn)=>{ const r=$(id); r.value=S[key]; r.oninput=()=>{ S[key]=+r.value; applyAll(); try{ K[kn]&&K[kn].set(S[key]); }catch(e){} }; };
+  bind('#msVol','vol','vol'); bind('#msSq','sq','sq'); bind('#msMic','mic','mic'); bind('#msRf','rf','rf');
+  const show=()=>{ $('#msCh').textContent='CH '+String(tune.ch).padStart(2,'0')+' '+BANDS[tune.band]; };
+  const step=d=>{ tune.ch=Math.min(MAXCH,Math.max(1,tune.ch+d)); try{ K.ch.set(tune.ch-1); }catch(e){} updateDisplay(); scheduleTune(350); show(); };
+  $('#msChDn').onclick=()=>step(-1); $('#msChUp').onclick=()=>step(1);
+  show(); setInterval(show,1000);
+}
+mstripInit();
 try{ initMap(); }catch(e){}
 try{ connect(); }catch(e){ setNet('SEM CONEXÃO (CDN bloqueado?)','warn'); }
 </script>
